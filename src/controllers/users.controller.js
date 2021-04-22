@@ -12,7 +12,7 @@ usersCtrl.renderSignUpForm = (req, res) => {
 
 usersCtrl.singup = async(req, res) => {
     let errors = [];
-    const { name, email, password, confirm_password } = req.body;
+    const { name, email, password, confirm_password, n1, n2 } = req.body;
     if (password != confirm_password) {
         errors.push({ text: "Passwords do not match." });
     }
@@ -25,7 +25,9 @@ usersCtrl.singup = async(req, res) => {
             name,
             email,
             password,
-            confirm_password
+            confirm_password,
+            n1,
+            n2
         });
     } else {
         // Look for email coincidence
@@ -35,7 +37,7 @@ usersCtrl.singup = async(req, res) => {
             res.redirect("/users/signup");
         } else {
             // Saving a New User
-            const newUser = new User({ name, email, password });
+            const newUser = new User({ name, email, password, n1, n2 });
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
             req.flash("success_msg", "You are registered.");
@@ -48,11 +50,11 @@ usersCtrl.renderSigninForm = (req, res) => {
     res.render("users/signin");
 };
 
-usersCtrl.signin = passport.authenticate("local", {
-    successRedirect: "/notes",
-    failureRedirect: "/users/signin",
-    failureFlash: true
-});
+// usersCtrl.signin = passport.authenticate("local", {
+//     successRedirect: "/notes",
+//     failureRedirect: "/users/signin",
+//     failureFlash: true
+// });
 
 usersCtrl.logout = (req, res) => {
     req.logout();

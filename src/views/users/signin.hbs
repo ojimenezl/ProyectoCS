@@ -1,3 +1,23 @@
+
+{{!-- <script src="handlebars-v2.0.0.js"></script> --}}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+<!--This is our template. -->
+<!--Data will be inserted in its according place, replacing the brackets.-->
+<script  type="text/x-handlebars-template" id="address-template"></script>
+  <p>You can find me in - {{ context.city }} -. My address is - {{ number }} - - {{ street }} -.</p>
+</script>
+
+<!--Your new content will be displayed in here-->
+<div class="content-placeholder"></div>
+
+
+{{!-- <script type="text/javascript">
+
+</script> --}}
+
+
 <div class="row">
   <div class="col-md-4 mx-auto">
     <div class="card mt-4 text-center">
@@ -15,10 +35,73 @@
           <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
-          <button class="btn btn-primary btn-block">
+          {{!-- <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter" id="btnomodal">
+            Entrar 
+          </button> --}}
+          <button class="btn btn-primary btn-block" >
             Entrar 
           </button>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{!-- tabla --}}
+            <input id="mi_modal" placeholder=""></input>
+            <table class="table table-bordered">
+              {{!-- <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead> --}}
+              <tbody>
+                <tr>
+                  {{!-- <th scope="row">1</th> --}}
+                  <td><button id="1" type="button" class="btn btn-outline-warning">{{numeros.n1}}</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">{{numeros.n2}}</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">23</button></td>
+                </tr>
+                <tr>
+                  {{!-- <th scope="row">2</th> --}}
+                  <td><button type="button" class="btn btn-outline-warning">51</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">23</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">35</button></td>
+                </tr>
+                <tr>
+                  {{!-- <th scope="row">3</th> --}}
+                  <td><button type="button" class="btn btn-outline-warning">25</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">67</button></td>
+                  <td><button type="button" class="btn btn-outline-warning">65</button></td>
+                  {{!-- <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td> --}}
+                </tr>
+              </tbody>
+            </table>
+
+        {{!-- fin tabla --}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Listo</button>
       </div>
     </div>
   </div>
